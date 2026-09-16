@@ -1,6 +1,6 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,6 @@
     <title>Fútbol Web</title>
 
     <style>
-
-        /* =========================
-           CONFIGURACIÓN GENERAL
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -25,19 +20,12 @@
             color: white;
         }
 
-
-        /* =========================
-           CABECERA
-        ========================= */
-
         header {
             background: #0b1220;
             padding: 15px 30px;
-
             display: flex;
-            align-items: center;
             justify-content: space-between;
-
+            align-items: center;
             border-bottom: 1px solid #263244;
         }
 
@@ -55,11 +43,6 @@
         nav a:hover {
             color: white;
         }
-
-
-        /* =========================
-           CONTENIDO
-        ========================= */
 
         main {
             width: 90%;
@@ -80,25 +63,24 @@
             margin-top: 5px;
         }
 
-
-        /* =========================
-           PARTIDOS
-        ========================= */
-
         .partidos {
             margin-bottom: 40px;
+        }
+
+        .partidos h2,
+        .ligas h2,
+        .tabla h2 {
+            margin-bottom: 15px;
         }
 
         .partido {
             background: #1e293b;
             margin-bottom: 10px;
             padding: 18px;
-
             border-radius: 8px;
 
             display: grid;
             grid-template-columns: 1fr 100px 1fr;
-
             align-items: center;
 
             text-align: center;
@@ -124,11 +106,6 @@
             color: #22c55e;
         }
 
-
-        /* =========================
-           LIGAS
-        ========================= */
-
         .ligas {
             margin-bottom: 40px;
         }
@@ -144,18 +121,12 @@
             padding: 20px;
             border-radius: 8px;
             text-align: center;
-
             cursor: pointer;
         }
 
         .liga:hover {
             background: #273449;
         }
-
-
-        /* =========================
-           TABLA
-        ========================= */
 
         .tabla {
             margin-bottom: 50px;
@@ -171,7 +142,6 @@
         td {
             padding: 12px;
             text-align: left;
-
             border-bottom: 1px solid #334155;
         }
 
@@ -179,24 +149,12 @@
             background: #0f172a;
         }
 
-
-        /* =========================
-           PIE DE PÁGINA
-        ========================= */
-
         footer {
             text-align: center;
             padding: 25px;
-
             color: #64748b;
-
             border-top: 1px solid #263244;
         }
-
-
-        /* =========================
-           CELULAR
-        ========================= */
 
         @media (max-width: 700px) {
 
@@ -218,18 +176,14 @@
                 font-size: 14px;
             }
 
+            .resultado {
+                font-size: 18px;
+            }
         }
-
     </style>
 </head>
 
-
 <body>
-
-
-    <!-- =========================
-         CABECERA
-    ========================= -->
 
     <header>
 
@@ -246,14 +200,7 @@
 
     </header>
 
-
-
-    <!-- =========================
-         CONTENIDO
-    ========================= -->
-
     <main>
-
 
         <div class="titulo">
 
@@ -265,16 +212,9 @@
 
         </div>
 
-
-
-        <!-- =========================
-             PARTIDOS
-        ========================= -->
-
         <section class="partidos" id="partidos">
 
             <h2>⚽ Partidos</h2>
-
 
             <div class="partido">
 
@@ -298,8 +238,6 @@
 
             </div>
 
-
-
             <div class="partido">
 
                 <div class="equipo">
@@ -321,8 +259,6 @@
                 </div>
 
             </div>
-
-
 
             <div class="partido">
 
@@ -348,17 +284,9 @@
 
         </section>
 
-
-
-        <!-- =========================
-             LIGAS
-        ========================= -->
-
         <section class="ligas" id="ligas">
 
             <h2>🏆 Ligas</h2>
-
-            <br>
 
             <div class="lista-ligas">
 
@@ -382,17 +310,9 @@
 
         </section>
 
-
-
-        <!-- =========================
-             TABLA
-        ========================= -->
-
         <section class="tabla" id="tabla">
 
             <h2>📊 Tabla de posiciones</h2>
-
-            <br>
 
             <table>
 
@@ -406,7 +326,6 @@
                     </tr>
 
                 </thead>
-
 
                 <tbody>
 
@@ -444,14 +363,7 @@
 
         </section>
 
-
     </main>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
 
     <footer>
 
@@ -459,7 +371,6 @@
 
     </footer>
 
-
 </body>
+
 </html>
-```
