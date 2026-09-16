@@ -1,0 +1,465 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fútbol Web</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+        }
+
+
+        /* =========================
+           CABECERA
+        ========================= */
+
+        header {
+            background: #0b1220;
+            padding: 15px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #263244;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+
+        /* =========================
+           CONTENIDO
+        ========================= */
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .titulo {
+            margin: 35px 0 20px;
+        }
+
+        .titulo h1 {
+            font-size: 30px;
+        }
+
+        .titulo p {
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           PARTIDOS
+        ========================= */
+
+        .partidos {
+            margin-bottom: 40px;
+        }
+
+        .partido {
+            background: #1e293b;
+            margin-bottom: 10px;
+            padding: 18px;
+
+            border-radius: 8px;
+
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .equipo {
+            font-weight: bold;
+        }
+
+        .resultado {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .hora {
+            display: block;
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .en-vivo {
+            color: #22c55e;
+        }
+
+
+        /* =========================
+           LIGAS
+        ========================= */
+
+        .ligas {
+            margin-bottom: 40px;
+        }
+
+        .lista-ligas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .liga {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+
+            cursor: pointer;
+        }
+
+        .liga:hover {
+            background: #273449;
+        }
+
+
+        /* =========================
+           TABLA
+        ========================= */
+
+        .tabla {
+            margin-bottom: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e293b;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #0f172a;
+        }
+
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+
+            color: #64748b;
+
+            border-top: 1px solid #263244;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 5px;
+            }
+
+            .lista-ligas {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .partido {
+                grid-template-columns: 1fr 70px 1fr;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CABECERA
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            ⚽ Fútbol Web
+        </div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#partidos">Partidos</a>
+            <a href="#ligas">Ligas</a>
+            <a href="#tabla">Tabla</a>
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================= -->
+
+    <main>
+
+
+        <div class="titulo">
+
+            <h1>Partidos de hoy</h1>
+
+            <p>
+                Resultados y horarios de fútbol
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             PARTIDOS
+        ========================= -->
+
+        <section class="partidos" id="partidos">
+
+            <h2>⚽ Partidos</h2>
+
+
+            <div class="partido">
+
+                <div class="equipo">
+                    River Plate
+                </div>
+
+                <div class="resultado">
+
+                    2 - 1
+
+                    <span class="hora en-vivo">
+                        72'
+                    </span>
+
+                </div>
+
+                <div class="equipo">
+                    Boca Juniors
+                </div>
+
+            </div>
+
+
+
+            <div class="partido">
+
+                <div class="equipo">
+                    Barcelona
+                </div>
+
+                <div class="resultado">
+
+                    21:00
+
+                    <span class="hora">
+                        Próximo
+                    </span>
+
+                </div>
+
+                <div class="equipo">
+                    Real Madrid
+                </div>
+
+            </div>
+
+
+
+            <div class="partido">
+
+                <div class="equipo">
+                    Liverpool
+                </div>
+
+                <div class="resultado">
+
+                    3 - 0
+
+                    <span class="hora">
+                        Final
+                    </span>
+
+                </div>
+
+                <div class="equipo">
+                    Chelsea
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             LIGAS
+        ========================= -->
+
+        <section class="ligas" id="ligas">
+
+            <h2>🏆 Ligas</h2>
+
+            <br>
+
+            <div class="lista-ligas">
+
+                <div class="liga">
+                    🇦🇷 Argentina
+                </div>
+
+                <div class="liga">
+                    🇪🇸 España
+                </div>
+
+                <div class="liga">
+                    🏴 Inglaterra
+                </div>
+
+                <div class="liga">
+                    🇮🇹 Italia
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TABLA
+        ========================= -->
+
+        <section class="tabla" id="tabla">
+
+            <h2>📊 Tabla de posiciones</h2>
+
+            <br>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Equipo</th>
+                        <th>PTS</th>
+                        <th>PJ</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>River Plate</td>
+                        <td>35</td>
+                        <td>16</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Boca Juniors</td>
+                        <td>32</td>
+                        <td>16</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Racing</td>
+                        <td>29</td>
+                        <td>16</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Independiente</td>
+                        <td>27</td>
+                        <td>16</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        ⚽ Fútbol Web © 2026
+
+    </footer>
+
+
+</body>
+</html>
+```
