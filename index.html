@@ -8,6 +8,7 @@
     <title>Fútbol Web</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,9 +24,11 @@
         header {
             background: #0b1220;
             padding: 15px 30px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             border-bottom: 1px solid #263244;
         }
 
@@ -63,6 +66,9 @@
             margin-top: 5px;
         }
 
+
+        /* PARTIDOS */
+
         .partidos {
             margin-bottom: 40px;
         }
@@ -75,12 +81,15 @@
 
         .partido {
             background: #1e293b;
+
             margin-bottom: 10px;
             padding: 18px;
+
             border-radius: 8px;
 
             display: grid;
             grid-template-columns: 1fr 100px 1fr;
+
             align-items: center;
 
             text-align: center;
@@ -88,6 +97,19 @@
 
         .equipo {
             font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+        .escudo {
+            width: 35px;
+            height: 35px;
+
+            object-fit: contain;
         }
 
         .resultado {
@@ -97,8 +119,11 @@
 
         .hora {
             display: block;
+
             color: #94a3b8;
+
             font-size: 12px;
+
             margin-top: 5px;
         }
 
@@ -106,21 +131,30 @@
             color: #22c55e;
         }
 
+
+        /* LIGAS */
+
         .ligas {
             margin-bottom: 40px;
         }
 
         .lista-ligas {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
+
             gap: 10px;
         }
 
         .liga {
             background: #1e293b;
+
             padding: 20px;
+
             border-radius: 8px;
+
             text-align: center;
+
             cursor: pointer;
         }
 
@@ -128,20 +162,27 @@
             background: #273449;
         }
 
+
+        /* TABLA */
+
         .tabla {
             margin-bottom: 50px;
         }
 
         table {
             width: 100%;
+
             border-collapse: collapse;
+
             background: #1e293b;
         }
 
         th,
         td {
             padding: 12px;
+
             text-align: left;
+
             border-bottom: 1px solid #334155;
         }
 
@@ -149,17 +190,44 @@
             background: #0f172a;
         }
 
+        .equipo-tabla {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: bold;
+        }
+
+        .escudo-tabla {
+            width: 30px;
+            height: 30px;
+
+            object-fit: contain;
+        }
+
+
+        /* FOOTER */
+
         footer {
             text-align: center;
+
             padding: 25px;
+
             color: #64748b;
+
             border-top: 1px solid #263244;
         }
+
+
+        /* CELULAR */
 
         @media (max-width: 700px) {
 
             header {
                 flex-direction: column;
+
                 gap: 15px;
             }
 
@@ -173,203 +241,436 @@
 
             .partido {
                 grid-template-columns: 1fr 70px 1fr;
+
                 font-size: 14px;
             }
 
             .resultado {
                 font-size: 18px;
             }
+
+            .escudo {
+                width: 28px;
+                height: 28px;
+            }
+
+            .equipo {
+                flex-direction: column;
+
+                gap: 5px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <header>
 
-        <div class="logo">
-            ⚽ Fútbol Web
+<header>
+
+    <div class="logo">
+        ⚽ Fútbol Web
+    </div>
+
+    <nav>
+
+        <a href="#">Inicio</a>
+
+        <a href="#partidos">
+            Partidos
+        </a>
+
+        <a href="#ligas">
+            Ligas
+        </a>
+
+        <a href="#tabla">
+            Tabla
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <div class="titulo">
+
+        <h1>
+            Partidos de hoy
+        </h1>
+
+        <p>
+            Resultados y horarios de fútbol
+        </p>
+
+    </div>
+
+
+    <!-- PARTIDOS -->
+
+    <section class="partidos" id="partidos">
+
+        <h2>
+            ⚽ Partidos
+        </h2>
+
+
+        <!-- RIVER - BOCA -->
+
+        <div class="partido">
+
+            <div class="equipo">
+
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png"
+                    alt="River Plate">
+
+                River Plate
+
+            </div>
+
+
+            <div class="resultado">
+
+                2 - 1
+
+                <span class="hora en-vivo">
+                    72'
+                </span>
+
+            </div>
+
+
+            <div class="equipo">
+
+                Boca Juniors
+
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+                    alt="Boca Juniors">
+
+            </div>
+
         </div>
 
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#partidos">Partidos</a>
-            <a href="#ligas">Ligas</a>
-            <a href="#tabla">Tabla</a>
-        </nav>
 
-    </header>
+        <!-- BARCELONA - REAL MADRID -->
 
-    <main>
+        <div class="partido">
 
-        <div class="titulo">
+            <div class="equipo">
 
-            <h1>Partidos de hoy</h1>
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/47/FC_Barcelona_%28crest%29.svg"
+                    alt="Barcelona">
 
-            <p>
-                Resultados y horarios de fútbol
-            </p>
+                Barcelona
+
+            </div>
+
+
+            <div class="resultado">
+
+                21:00
+
+                <span class="hora">
+                    Próximo
+                </span>
+
+            </div>
+
+
+            <div class="equipo">
+
+                Real Madrid
+
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/56/Real_Madrid_CF.svg"
+                    alt="Real Madrid">
+
+            </div>
 
         </div>
 
-        <section class="partidos" id="partidos">
 
-            <h2>⚽ Partidos</h2>
+        <!-- LIVERPOOL - CHELSEA -->
 
-            <div class="partido">
+        <div class="partido">
 
-                <div class="equipo">
-                    River Plate
-                </div>
+            <div class="equipo">
 
-                <div class="resultado">
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Liverpool_FC.svg"
+                    alt="Liverpool">
 
-                    2 - 1
-
-                    <span class="hora en-vivo">
-                        72'
-                    </span>
-
-                </div>
-
-                <div class="equipo">
-                    Boca Juniors
-                </div>
+                Liverpool
 
             </div>
 
-            <div class="partido">
 
-                <div class="equipo">
-                    Barcelona
-                </div>
+            <div class="resultado">
 
-                <div class="resultado">
+                3 - 0
 
-                    21:00
-
-                    <span class="hora">
-                        Próximo
-                    </span>
-
-                </div>
-
-                <div class="equipo">
-                    Real Madrid
-                </div>
+                <span class="hora">
+                    Final
+                </span>
 
             </div>
 
-            <div class="partido">
 
-                <div class="equipo">
-                    Liverpool
-                </div>
+            <div class="equipo">
 
-                <div class="resultado">
+                Chelsea
 
-                    3 - 0
-
-                    <span class="hora">
-                        Final
-                    </span>
-
-                </div>
-
-                <div class="equipo">
-                    Chelsea
-                </div>
+                <img
+                    class="escudo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Chelsea_FC.svg"
+                    alt="Chelsea">
 
             </div>
 
-        </section>
+        </div>
 
-        <section class="ligas" id="ligas">
+    </section>
 
-            <h2>🏆 Ligas</h2>
 
-            <div class="lista-ligas">
 
-                <div class="liga">
-                    🇦🇷 Argentina
-                </div>
+    <!-- LIGAS -->
 
-                <div class="liga">
-                    🇪🇸 España
-                </div>
+    <section class="ligas" id="ligas">
 
-                <div class="liga">
-                    🏴 Inglaterra
-                </div>
+        <h2>
+            🏆 Ligas
+        </h2>
 
-                <div class="liga">
-                    🇮🇹 Italia
-                </div>
+        <div class="lista-ligas">
 
+            <div class="liga">
+                🇦🇷 Argentina
             </div>
 
-        </section>
+            <div class="liga">
+                🇪🇸 España
+            </div>
 
-        <section class="tabla" id="tabla">
+            <div class="liga">
+                🏴 Inglaterra
+            </div>
 
-            <h2>📊 Tabla de posiciones</h2>
+            <div class="liga">
+                🇮🇹 Italia
+            </div>
 
-            <table>
+        </div>
 
-                <thead>
+    </section>
 
-                    <tr>
-                        <th>#</th>
-                        <th>Equipo</th>
-                        <th>PTS</th>
-                        <th>PJ</th>
-                    </tr>
 
-                </thead>
 
-                <tbody>
+    <!-- TABLA -->
 
-                    <tr>
-                        <td>1</td>
-                        <td>River Plate</td>
-                        <td>35</td>
-                        <td>16</td>
-                    </tr>
+    <section class="tabla" id="tabla">
 
-                    <tr>
-                        <td>2</td>
-                        <td>Boca Juniors</td>
-                        <td>32</td>
-                        <td>16</td>
-                    </tr>
+        <h2>
+            📊 Tabla de posiciones
+        </h2>
 
-                    <tr>
-                        <td>3</td>
-                        <td>Racing</td>
-                        <td>29</td>
-                        <td>16</td>
-                    </tr>
 
-                    <tr>
-                        <td>4</td>
-                        <td>Independiente</td>
-                        <td>27</td>
-                        <td>16</td>
-                    </tr>
+        <table>
 
-                </tbody>
+            <thead>
 
-            </table>
+                <tr>
 
-        </section>
+                    <th>
+                        #
+                    </th>
 
-    </main>
+                    <th>
+                        Equipo
+                    </th>
 
-    <footer>
+                    <th>
+                        PTS
+                    </th>
 
-        ⚽ Fútbol Web © 2026
+                    <th>
+                        PJ
+                    </th>
 
-    </footer>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <!-- RIVER -->
+
+                <tr>
+
+                    <td>
+                        1
+                    </td>
+
+                    <td>
+
+                        <div class="equipo-tabla">
+
+                            <img
+                                class="escudo-tabla"
+                                src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_River_Plate.png"
+                                alt="River Plate">
+
+                            River Plate
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        35
+                    </td>
+
+                    <td>
+                        16
+                    </td>
+
+                </tr>
+
+
+                <!-- BOCA -->
+
+                <tr>
+
+                    <td>
+                        2
+                    </td>
+
+                    <td>
+
+                        <div class="equipo-tabla">
+
+                            <img
+                                class="escudo-tabla"
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/41/CABJ70.png"
+                                alt="Boca Juniors">
+
+                            Boca Juniors
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        32
+                    </td>
+
+                    <td>
+                        16
+                    </td>
+
+                </tr>
+
+
+                <!-- RACING -->
+
+                <tr>
+
+                    <td>
+                        3
+                    </td>
+
+                    <td>
+
+                        <div class="equipo-tabla">
+
+                            <img
+                                class="escudo-tabla"
+                                src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Racing_Club_logo.svg"
+                                alt="Racing">
+
+                            Racing
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        29
+                    </td>
+
+                    <td>
+                        16
+                    </td>
+
+                </tr>
+
+
+                <!-- INDEPENDIENTE -->
+
+                <tr>
+
+                    <td>
+                        4
+                    </td>
+
+                    <td>
+
+                        <div class="equipo-tabla">
+
+                            <img
+                                class="escudo-tabla"
+                                src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Escudo_del_Club_Atl%C3%A9tico_Independiente.svg"
+                                alt="Independiente">
+
+                            Independiente
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        27
+                    </td>
+
+                    <td>
+                        16
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    ⚽ Fútbol Web © 2026
+
+</footer>
+
 
 </body>
 
