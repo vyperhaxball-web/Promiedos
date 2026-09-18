@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Promiedos Web</title>
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,133 +14,156 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #111;
             color: white;
         }
 
         header {
-            background: #e00000;
-            padding: 15px;
+            background: #050505;
+            padding: 20px;
             text-align: center;
+            border-bottom: 2px solid #222;
         }
 
         header h1 {
-            font-size: 30px;
+            font-size: 28px;
         }
 
         nav {
-            background: #222;
+            background: #181818;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 10px;
             padding: 12px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            background: #252525;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
         }
 
         nav a:hover {
-            color: #ff3333;
+            background: #333;
         }
 
-        .contenedor {
+        main {
             width: 95%;
-            max-width: 1100px;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 25px auto;
         }
 
         .titulo {
-            background: #e00000;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .liga {
-            background: #1d1d1d;
-            border: 1px solid #333;
+            font-size: 22px;
             margin-bottom: 20px;
         }
 
+        .liga {
+            background: #191919;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #292929;
+        }
+
         .liga-titulo {
-            background: #292929;
-            padding: 10px;
+            background: #222;
+            padding: 13px 16px;
             font-size: 18px;
             font-weight: bold;
         }
 
         .partido {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
             align-items: center;
-            justify-content: center;
-            gap: 25px;
+            gap: 10px;
             padding: 18px;
-            border-top: 1px solid #333;
+            border-top: 1px solid #292929;
         }
 
         .equipo {
-            width: 180px;
-            text-align: center;
-        }
-
-        .equipo img {
-            width: 55px;
-            height: 55px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 8px;
-        }
-
-        .equipo span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: bold;
         }
 
-        .resultado {
+        .equipo.local {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .equipo.visitante {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .escudo {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .info-partido {
             text-align: center;
-            min-width: 100px;
         }
 
         .hora {
-            color: #aaa;
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .marcador {
-            font-size: 25px;
+            font-size: 18px;
             font-weight: bold;
         }
 
         .estado {
-            color: #00d26a;
-            font-size: 13px;
             margin-top: 5px;
+            font-size: 12px;
+            color: #aaa;
         }
 
         .tabla {
+            background: #191919;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #292929;
+            margin-top: 30px;
+        }
+
+        .tabla h2 {
+            background: #222;
+            padding: 14px;
+            font-size: 18px;
+        }
+
+        table {
             width: 100%;
             border-collapse: collapse;
-            background: #1d1d1d;
         }
 
-        .tabla th {
-            background: #292929;
-            padding: 10px;
+        th,
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #292929;
             text-align: center;
         }
 
-        .tabla td {
-            padding: 9px;
-            border-top: 1px solid #333;
-            text-align: center;
+        th {
+            background: #202020;
+            font-size: 13px;
         }
 
-        .tabla td:nth-child(2) {
+        td {
+            font-size: 14px;
+        }
+
+        .equipo-tabla {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             text-align: left;
         }
 
@@ -152,512 +171,348 @@
             width: 30px;
             height: 30px;
             object-fit: contain;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .puesto {
-            width: 35px;
-            font-weight: bold;
         }
 
         footer {
-            margin-top: 30px;
-            background: #222;
-            padding: 20px;
             text-align: center;
-            color: #888;
+            color: #777;
+            padding: 30px 10px;
+            font-size: 13px;
         }
 
         @media (max-width: 600px) {
 
             header h1 {
-                font-size: 24px;
-            }
-
-            nav {
-                gap: 12px;
-                font-size: 14px;
+                font-size: 23px;
             }
 
             .partido {
-                gap: 10px;
+                grid-template-columns: 1fr 75px 1fr;
+                padding: 14px 8px;
             }
 
             .equipo {
-                width: 110px;
-            }
-
-            .equipo img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .resultado {
-                min-width: 65px;
-            }
-
-            .marcador {
-                font-size: 20px;
-            }
-
-            .equipo span {
                 font-size: 13px;
             }
 
+            .escudo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .hora {
+                font-size: 15px;
+            }
+
+            th,
+            td {
+                padding: 9px 5px;
+                font-size: 12px;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
 <header>
-
     <h1>⚽ PROMIEDOS WEB</h1>
-
 </header>
 
-
 <nav>
-
     <a href="#">Inicio</a>
-
-    <a href="#partidos">Partidos</a>
-
-    <a href="#tablas">Tablas</a>
-
+    <a href="#">Partidos</a>
+    <a href="#">Tablas</a>
     <a href="#">Resultados</a>
-
 </nav>
 
+<main>
 
-<div class="contenedor">
+    <h2 class="titulo">⚽ PARTIDOS DE HOY</h2>
 
+    <!-- ARGENTINA -->
 
-    <!-- PARTIDOS -->
-
-    <div class="titulo" id="partidos">
-
-        ⚽ PARTIDOS DE HOY
-
-    </div>
-
-
-
-    <!-- LIGA PROFESIONAL -->
-
-    <div class="liga">
+    <section class="liga">
 
         <div class="liga-titulo">
-
             Liga Profesional
-
         </div>
-
-
-        <!-- RIVER VS BOCA -->
 
         <div class="partido">
 
-            <div class="equipo">
+            <div class="equipo local">
+                River Plate
 
                 <img
-                    src="https://assets.football-logos.cc/logos/argentina/1500x1500/river-plate.1ac01d84.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/argentina/river-plate.png"
                     alt="River Plate"
                 >
-
-                <span>River Plate</span>
-
             </div>
 
-
-            <div class="resultado">
-
-                <div class="hora">
-                    21:00
-                </div>
-
-                <div class="marcador">
-                    -
-                </div>
-
-                <div class="estado">
-                    Próximo
-                </div>
-
+            <div class="info-partido">
+                <div class="hora">21:00</div>
+                <div class="estado">Próximo</div>
             </div>
 
-
-            <div class="equipo">
+            <div class="equipo visitante">
 
                 <img
-                    src="https://assets.football-logos.cc/logos/argentina/1500x1500/boca-juniors.009a4e59.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/argentina/boca-juniors.png"
                     alt="Boca Juniors"
                 >
 
-                <span>Boca Juniors</span>
-
+                Boca Juniors
             </div>
 
         </div>
 
-
-        <!-- RACING VS INDEPENDIENTE -->
-
         <div class="partido">
 
-            <div class="equipo">
+            <div class="equipo local">
+                Racing Club
 
                 <img
-                    src="https://assets.football-logos.cc/logos/argentina/1500x1500/racing-club.2e7a0fc0.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/argentina/racing-club.png"
                     alt="Racing Club"
                 >
-
-                <span>Racing Club</span>
-
             </div>
 
-
-            <div class="resultado">
-
-                <div class="hora">
-                    19:30
-                </div>
-
-                <div class="marcador">
-                    -
-                </div>
-
-                <div class="estado">
-                    Próximo
-                </div>
-
+            <div class="info-partido">
+                <div class="hora">19:30</div>
+                <div class="estado">Próximo</div>
             </div>
 
-
-            <div class="equipo">
+            <div class="equipo visitante">
 
                 <img
-                    src="https://assets.football-logos.cc/logos/argentina/1500x1500/independiente.fe207eca.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/argentina/independiente.png"
                     alt="Independiente"
                 >
 
-                <span>Independiente</span>
-
+                Independiente
             </div>
 
         </div>
 
-    </div>
+    </section>
 
 
+    <!-- ESPAÑA -->
 
-    <!-- LALIGA -->
-
-    <div class="liga">
+    <section class="liga">
 
         <div class="liga-titulo">
-
-            LALIGA
-
+            LaLiga
         </div>
-
-
-        <!-- BARCELONA VS REAL MADRID -->
 
         <div class="partido">
 
-            <div class="equipo">
+            <div class="equipo local">
+
+                Barcelona
 
                 <img
+                    class="escudo"
                     src="https://commons.wikimedia.org/wiki/Special:FilePath/Fc%20barca.png"
-                    alt="Barcelona"
+                    alt="FC Barcelona"
                 >
 
-                <span>Barcelona</span>
-
             </div>
 
-
-            <div class="resultado">
-
-                <div class="hora">
-                    16:00
-                </div>
-
-                <div class="marcador">
-                    -
-                </div>
-
-                <div class="estado">
-                    Próximo
-                </div>
-
+            <div class="info-partido">
+                <div class="hora">16:00</div>
+                <div class="estado">Próximo</div>
             </div>
 
-
-            <div class="equipo">
+            <div class="equipo visitante">
 
                 <img
-                    src="https://assets.football-logos.cc/logos/spain/1500x1500/real-madrid.e34f5ba5.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/spain/real-madrid.png"
                     alt="Real Madrid"
                 >
 
-                <span>Real Madrid</span>
+                Real Madrid
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
 
+    <!-- INGLATERRA -->
 
-    <!-- PREMIER LEAGUE -->
-
-    <div class="liga">
+    <section class="liga">
 
         <div class="liga-titulo">
-
             Premier League
-
         </div>
-
-
-        <!-- LIVERPOOL VS CHELSEA -->
 
         <div class="partido">
 
-            <div class="equipo">
+            <div class="equipo local">
+
+                Liverpool
 
                 <img
-                    src="https://assets.football-logos.cc/logos/england/1500x1500/liverpool.d03fd250.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/england/liverpool.png"
                     alt="Liverpool"
                 >
 
-                <span>Liverpool</span>
-
             </div>
 
-
-            <div class="resultado">
-
-                <div class="hora">
-                    13:30
-                </div>
-
-                <div class="marcador">
-                    -
-                </div>
-
-                <div class="estado">
-                    Próximo
-                </div>
-
+            <div class="info-partido">
+                <div class="hora">13:30</div>
+                <div class="estado">Próximo</div>
             </div>
 
-
-            <div class="equipo">
+            <div class="equipo visitante">
 
                 <img
-                    src="https://assets.football-logos.cc/logos/england/1500x1500/chelsea.450170ff.png"
+                    class="escudo"
+                    src="https://assets.football-logos.cc/logos/england/chelsea.png"
                     alt="Chelsea"
                 >
 
-                <span>Chelsea</span>
+                Chelsea
 
             </div>
 
         </div>
 
-    </div>
-
+    </section>
 
 
     <!-- TABLA -->
 
-    <div class="titulo" id="tablas">
+    <section class="tabla">
 
-        📊 TABLA DE POSICIONES
+        <h2>📊 TABLA DE POSICIONES</h2>
 
-    </div>
-
-
-    <div class="liga">
-
-        <div class="liga-titulo">
-
+        <h3 style="padding:15px 15px 5px;">
             Liga Profesional
+        </h3>
 
-        </div>
-
-
-        <table class="tabla">
+        <table>
 
             <thead>
-
                 <tr>
-
                     <th>#</th>
-
                     <th>Equipo</th>
-
                     <th>PTS</th>
-
                     <th>PJ</th>
-
                     <th>DG</th>
-
                 </tr>
-
             </thead>
-
 
             <tbody>
 
-
-                <!-- RIVER -->
-
                 <tr>
-
-                    <td class="puesto">
-                        1
-                    </td>
+                    <td>1</td>
 
                     <td>
+                        <div class="equipo-tabla">
 
-                        <img
-                            class="escudo-tabla"
-                            src="https://assets.football-logos.cc/logos/argentina/1500x1500/river-plate.1ac01d84.png"
-                            alt="River Plate"
-                        >
+                            <img
+                                class="escudo-tabla"
+                                src="https://assets.football-logos.cc/logos/argentina/river-plate.png"
+                                alt="River Plate"
+                            >
 
-                        River Plate
+                            River Plate
 
+                        </div>
                     </td>
 
                     <td>45</td>
-
                     <td>20</td>
-
                     <td>+18</td>
-
                 </tr>
 
-
-                <!-- BOCA -->
-
                 <tr>
-
-                    <td class="puesto">
-                        2
-                    </td>
+                    <td>2</td>
 
                     <td>
+                        <div class="equipo-tabla">
 
-                        <img
-                            class="escudo-tabla"
-                            src="https://assets.football-logos.cc/logos/argentina/1500x1500/boca-juniors.009a4e59.png"
-                            alt="Boca Juniors"
-                        >
+                            <img
+                                class="escudo-tabla"
+                                src="https://assets.football-logos.cc/logos/argentina/boca-juniors.png"
+                                alt="Boca Juniors"
+                            >
 
-                        Boca Juniors
+                            Boca Juniors
 
+                        </div>
                     </td>
 
                     <td>42</td>
-
                     <td>20</td>
-
                     <td>+14</td>
-
                 </tr>
 
-
-                <!-- RACING -->
-
                 <tr>
-
-                    <td class="puesto">
-                        3
-                    </td>
+                    <td>3</td>
 
                     <td>
+                        <div class="equipo-tabla">
 
-                        <img
-                            class="escudo-tabla"
-                            src="https://assets.football-logos.cc/logos/argentina/1500x1500/racing-club.2e7a0fc0.png"
-                            alt="Racing Club"
-                        >
+                            <img
+                                class="escudo-tabla"
+                                src="https://assets.football-logos.cc/logos/argentina/racing-club.png"
+                                alt="Racing Club"
+                            >
 
-                        Racing Club
+                            Racing Club
 
+                        </div>
                     </td>
 
                     <td>39</td>
-
                     <td>20</td>
-
                     <td>+10</td>
-
                 </tr>
 
-
-                <!-- INDEPENDIENTE -->
-
                 <tr>
-
-                    <td class="puesto">
-                        4
-                    </td>
+                    <td>4</td>
 
                     <td>
+                        <div class="equipo-tabla">
 
-                        <img
-                            class="escudo-tabla"
-                            src="https://assets.football-logos.cc/logos/argentina/1500x1500/independiente.fe207eca.png"
-                            alt="Independiente"
-                        >
+                            <img
+                                class="escudo-tabla"
+                                src="https://assets.football-logos.cc/logos/argentina/independiente.png"
+                                alt="Independiente"
+                            >
 
-                        Independiente
+                            Independiente
 
+                        </div>
                     </td>
 
                     <td>36</td>
-
                     <td>20</td>
-
                     <td>+7</td>
-
                 </tr>
-
 
             </tbody>
 
         </table>
 
-    </div>
+    </section>
 
-
-</div>
-
-
+</main>
 
 <footer>
-
-    PROMIEDOS WEB ⚽
-
-    <br>
-
+    PROMIEDOS WEB ⚽<br>
     Proyecto personal
-
 </footer>
 
-
 </body>
-
 </html>
